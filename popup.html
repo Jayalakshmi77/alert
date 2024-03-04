@@ -2,18 +2,47 @@
 <html>
 <head>
     <title>Popup Message Example</title>
+    <script>
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+    </script>
+    <style>
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: lightgray;
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        #close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
     <h1>Welcome to my website!</h1>
-    
-    <button onclick="myFunction()">Click Me</button>
-    
-    <script>
-        function myFunction() {
-            alert("Hello! You are hacked.");
-        }
-    </script>
+
+    <button onclick="showPopup()">Show Popup</button>
+
+    <div id="popup">
+        <span id="close" onclick="closePopup()">&times;</span>
+        <p>Hello! This is a popup message.</p>
+    </div>
 
 </body>
 </html>
